@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UCR Translator — D1 Conference Strength &amp; Park Factor Calculator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Division 1 · Baseball Analytics</p>
+    <h1 class="hero-title">UCR<span class="hero-title-sub">TRANSLATOR</span></h1>
+    <p class="hero-desc">
+      Move a stat line from one conference and ballpark to another. Built on the Unified Conference
+      Rating (UCR) system — win percentage and strength of schedule, standardized across all 29
+      Division&nbsp;1 baseball conferences — combined with park factors for 284 D1 programs.
+    </p>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="num">29</span><span class="lbl">Conferences</span></div>
+      <div class="hero-stat"><span class="num">284</span><span class="lbl">Schools</span></div>
+      <div class="hero-stat"><span class="num">D1</span><span class="lbl">Only</span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- CALCULATOR -->
+  <section id="calculator" class="panel">
+    <div class="panel-head">
+      <span class="tag">01</span>
+      <h2>Translation Calculator</h2>
+      <p class="panel-sub">Pick where a stat is coming from, where it's headed, and let the board do the conversion.</p>
+    </div>
+
+    <div class="calc-grid">
+
+      <div class="calc-col">
+        <div class="field-block origin">
+          <label class="field-label">Origin school <span class="field-note">(where the stat was produced)</span></label>
+          <div class="combo" id="combo-origin">
+            <input type="text" class="combo-input" id="origin-input" placeholder="Search a school…" autocomplete="off">
+            <div class="combo-list" id="origin-list"></div>
+          </div>
+          <div class="school-readout" id="origin-readout">
+            <span class="ro-line">Conference: <b id="origin-conf">—</b></span>
+            <span class="ro-line">UCR<sub>old</sub>: <b id="origin-ucr">—</b></span>
+            <span class="ro-line">PF<sub>old</sub>: <b id="origin-pf">—</b></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-arrow" aria-hidden="true">
+        <svg viewBox="0 0 60 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 12H54M54 12L42 2M54 12L42 22" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+
+      <div class="calc-col">
+        <div class="field-block destination">
+          <label class="field-label">Destination school <span class="field-note">(where you're projecting to)</span></label>
+          <div class="combo" id="combo-dest">
+            <input type="text" class="combo-input" id="dest-input" placeholder="Search a school…" autocomplete="off">
+            <div class="combo-list" id="dest-list"></div>
+          </div>
+          <div class="school-readout" id="dest-readout">
+            <span class="ro-line">Conference: <b id="dest-conf">—</b></span>
+            <span class="ro-line">UCR<sub>new</sub>: <b id="dest-ucr">—</b></span>
+            <span class="ro-line">PF<sub>new</sub>: <b id="dest-pf">—</b></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="calc-inputs">
+      <div class="stat-type">
+        <label class="field-label">Stat type</label>
+        <div class="toggle-group" role="tablist">
+          <button type="button"
